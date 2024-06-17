@@ -458,14 +458,19 @@
   top: 7px;
   left: -30px;
   align-items: center;
+
 }
 .search-block img{
   display: flex;
+  width: 50px;
 }
 .search-block li{
   list-style: none;
   align-items: center;
   justify-content: center;
+  margin: 10px;
+  color: black;
+  font-weight: 700;
 }
 .search-block .box{
   z-index: 1000;

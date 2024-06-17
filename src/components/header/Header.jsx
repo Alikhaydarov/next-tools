@@ -177,9 +177,9 @@ function OffcanvasExample() {
                   {/* [value] */}
                   {value === "" ? (""):(<div className="search-block">
                     {data.products?.map((item) => (
-              <Link className="link-s" to={`product/detail/${item.id}`} style={{textDecoration:"none"}}>  
+              <Link className="link-s" to={`product/detail/${item.id}`} style={{textDecoration:"none",color:"#17b978"}}>  
               <div className="box">
-                <img src={item.thumbnail} alt=""  width={"30px"}/>
+                <img src={item.thumbnail} alt=""/>
                  <ul>
                 <li>{item.title}</li>
              </ul>
