@@ -220,10 +220,12 @@ function OffcanvasExample() {
                     </NavDropdown>
                   </div>
 
-                  <div className="header-link header-link-responsive-none shop-hover">
+                 <Link style={{textDecoration:"none"}} to={`/cart`}>
+                 <div className="header-link header-link-responsive-none ">
                     <TbShoppingCart className="left-side-icon-responsive" />
                     <span>{t('navbarTop.nav5')}</span>
                   </div>
+                 </Link>
 {/*///////////////////////////////////////////////////////////Shop hover status  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/}
                   <div className="shop-hover-container" style={{backgroundColor:'#f1f9ff'}}>
                     <div className="shop-hover-top"></div>

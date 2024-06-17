@@ -20,6 +20,7 @@ import Store from "./components/CompanyInfo/Store";
 import Footer from "./components/footer/Footer";
 import Modal from "./components/Modal/Modal"
 import Firstcategory from "./pages/firstcategory";
+import Cart from './pages/Cart';
 function App() {
   const [loader, setLoader] = useState(false);
   const Loader = () => {
@@ -62,6 +63,8 @@ function App() {
         <Route path="/order-pay" element={<OrderPay/>}/>
         <Route path="/order-pay-status" element={<OrderPayStatus/>}/>
         <Route path="/favourites" element={<Favourites/>}/>
+        <Route path="/Cart" element={<Cart/>}/>
+
       </Routes>
       <div className="slider">
        {/* <Slide/> */}
