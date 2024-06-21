@@ -28,8 +28,12 @@ import "swiper/css/navigation";
 import { EffectCube, Pagination,Navigation,Mousewheel} from "swiper";
 import axios from './../service/api';
 
-export default function ProductDetail() {
+export default function ProductDetail({closeSearch}) {
   const { t , i18n} = useTranslation();
+
+  const closeSerch =()=>{
+    closeSearch('')
+  }
 
     const [data,setData] = useState([])
     let {id} = useParams()
@@ -38,7 +42,7 @@ export default function ProductDetail() {
       const getData = async () => {
         try {
           const res = await axios.get(`/products/${id}`)
-          console.log(res)
+          // console.log(res)
           setData(res.data)
         } catch (error) {
           console.log(error)
@@ -47,12 +51,12 @@ export default function ProductDetail() {
       getData()
     },[id])
     console.log(data)
-    const {discountPercentage,title,translations,price,brand,image_main,description,img1,img2,img3} = data
+    const {discountPercentage,title,translations,price,brand,image_main,description,img1,img2,img3,count,ru,uz} = data
   return (
     <div className="product-container">
         <div className='product-detail-container'>
-          <div className="swiper-container">
-            <button ><BiHeart size={20}/></button>
+          <div className="swiper-container" onClick={closeSerch}>
+            {/* <button ><BiHeart size={20}/></button> */}
             <Swiper
                   style={{cursor:"zoom-in"}}
                   modules={[EffectCube, Pagination,]}
@@ -65,30 +69,29 @@ export default function ProductDetail() {
                   className="mySwiper"
                 >
                   <SwiperSlide>
-                    <img className='img' src={image_main} />
+                    <img className='img' src={image_main} alt='img'/>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <img  className='img' src={img1} />
+                    <img  className='img' src={img1} alt='img'/>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <img  className='img' src={img2} />
+                    <img  className='img' src={img2} alt='img'/>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <img  className='img' src={img3} />
+                    <img  className='img' src={img3} alt='img'/>
                   </SwiperSlide>
               </Swiper>
           </div>
           <div className="product-info-container">
 
               <div className="product-info-item">
-                <h4>{[i18n.language].title}</h4>
+                <h4>{title}</h4>
                 <span>${price}</span>
                 {/* {data.map((item)=>
                       <Title item={item}/>
                 )} */}
               </div>
-              <div className="product-status-item">
-                <span>${discountPercentage}/12 {t('Cardlang.card4')}</span>
+              {/* <div className="product-status-item">
                 <div className="stars-container">
                   <BsFillStarFill className='product-star'/>
                   <BsFillStarFill className='product-star'/>
@@ -97,11 +100,11 @@ export default function ProductDetail() {
                   <BsFillStarFill className='product-star'/>
                   <span><TiMessage/>0 {t('Cardlang.card2')}</span>
                 </div>
-              </div>
+              </div> */}
               <div className="brend-container">
                 <div className="brend-item">
-                  <span style={{fontWeight:"600",fontSize:'18px'}}>{t('productDetail.product1')} {brand}</span>
-                  <span style={{marginTop:"10px",fontWeight:"600",fontSize:'18px'}}>{t('productDetail.product2')} <span style={{color:"#34D374"}}><RxDotFilled/>{t('productDetail.product4')}</span></span>
+                  <span style={{fontWeight:"600",fontSize:'18px'}}>{t('productDetail.product1')}{count}</span>
+                  {/* <span style={{marginTop:"10px",fontWeight:"600",fontSize:'18px'}}>{t('productDetail.product2')} <span style={{color:"#34D374"}}><RxDotFilled/>{t('productDetail.product4')}</span></span> */}
                 </div>
                   <div className="social-network-container">
                     <span style={{fontWeight:"600",fontSize:'18px'}}>{t('productDetail.product3')}</span>
@@ -120,48 +123,16 @@ export default function ProductDetail() {
                   </div>
                 </div>
                 <div className="product-button-container">
-                  <button className='product-but1'>{t('productDetail.product6')}</button>
-                  <button className='product-but2'> <MdShoppingBasket style={{marginRight:"5px",}} size={25}/>{t('productDetail.product7')}</button>
-                  <button className='product-but3'>{t('productDetail.product8')}</button>
+                  {/* <button className='product-but1'>{t('productDetail.product6')}</button> */}
+                  <button onChange={closeSerch} className='product-but2'> <MdShoppingBasket style={{marginRight:"5px",}} size={25}/>{t('productDetail.product7')}</button>
+                  {/* <button className='product-but3'>{t('productDetail.product8')}</button> */}
                 </div>
           </div>
-          <div className="right-swiper">
-            <Swiper
-                slidesPerView={1}
-                spaceBetween={30}
-                loop={true}
-                mousewheel={true}
-                pagination={{
-                  clickable: true,
-                }}
-                navigation={false}
-                modules={[Pagination, Navigation,Mousewheel]}
-                className="mySwiper"
-              >
-                <SwiperSlide style={{textAlign:"center",padding:"10px 10px"}}>
-                    <span style={{color:"#F26E00",fontWeight:"500",fontSize:"16px"}}>{t('productDetail.product5')}</span>
-                    <img style={{width:"100%",height:"60%"}} src="https://assets.asaxiy.uz/product/main_image/desktop//6350e0c327484.jpg.webp" alt="" />
-                    <span style={{fontWeight:"400"}}>{t('productDetail.product9')}</span>
-                    <div className="right-swiper-price">
-                      <span style={{fontWeight:"500",fontSize:"17px",marginLeft:"-15px"}} >2 117 000 {t('Cardlang.card3')}</span>
-                      <MdShoppingBasket className='right-swiper-shop'/>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide style={{textAlign:"center",padding:"10px 10px"}}>
-                    <span style={{color:"#F26E00",fontWeight:"500",fontSize:"16px"}}>{t('productDetail.product5')}</span>
-                    <img style={{width:"100%",height:"60%"}} src="https://assets.asaxiy.uz/product/main_image/desktop/5e15bd7fd87bf.jpg.webp" alt="" />
-                    <span style={{fontWeight:"400"}}>{t('productDetail.product10')}</span>
-                    <div className="right-swiper-price">
-                      <span style={{fontWeight:"500",fontSize:"17px",marginLeft:"-15px"}} >2 117 000 {t('Cardlang.card3')}</span>
-                      <MdShoppingBasket className='right-swiper-shop'/>
-                    </div>
-                </SwiperSlide>
-              </Swiper>
-          </div>
+
         </div>
         <div className="product-description">
           <h2>Mahsulot ta'rifi</h2>
-          <p>{description}. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa doloribus molestias voluptatibus libero consequuntur dolores maxime architecto pariatur laudantium veniam reiciendis quasi ad distinctio fugit voluptatum nulla et aut ex reprehenderit, enim vel, maiores quam? Sequi consequuntur cupiditate ad aperiam unde quisquam commodi natus. Praesentium illo odit repellat suscipit, error expedita laboriosam, tenetur hic sit aut, ut voluptates magnam optio velit exercitationem in totam doloribus. Tempora quas nostrum mollitia voluptas recusandae expedita eius deleniti, quam iure, ullam doloribus autem ipsum dolor! Blanditiis accusantium laboriosam odio, voluptatibus molestias, officiis odit, eaque corporis quia accusamus eveniet quae commodi natus incidunt unde dicta!</p>
+          {/* <p>{translations.ru.description}</p> */}
         </div>
   </div>
   )

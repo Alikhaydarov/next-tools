@@ -23,8 +23,13 @@ import { Link } from "react-router-dom";
 import { useTranslation,  } from 'react-i18next';
 import Modal from 'react-bootstrap/Modal';
 import {Row,Col} from 'react-bootstrap'
-// import axios from './../../service/api';
-import  axios  from 'axios';
+import axios from './../../service/api';
+import ProductDetail from "../../pages/ProductDetail";
+import Categories from '../Categories'
+// import  axios  from 'axios';
+
+
+
 function OffcanvasExample() {
   const [data,setData] = useState([])
   const [lgShow, setLgShow] = useState(false);
@@ -38,8 +43,8 @@ function OffcanvasExample() {
   useEffect(()=>{
     const getData = async () => {
       try {
-        const res = await axios.get(`https://dummyjson.com/products/search?q=${value}`).then(res=> 
-        setData(res.data)).then(r=>r).catch(E=>console.log(E))
+        const res = await axios.get(`products/?search=${value}`).then(res=> 
+        setData(res.data.results)).then(r=>r).catch(E=>console.log(E))
       } catch (error) {
         console.log(error)
       }
@@ -176,12 +181,12 @@ function OffcanvasExample() {
                   </Form>
                   {/* [value] */}
                   {value === "" ? (""):(<div className="search-block">
-                    {data.products?.map((item) => (
-              <Link className="link-s" to={`product/detail/${item.id}`} style={{textDecoration:"none",color:"#17b978"}}>  
+                    {data?.map((item) => (
+              <Link className="link-s" to={`product/${item.id}`} style={{textDecoration:"none",color:"#17b978"}}>  
               <div className="box">
-                <img src={item.thumbnail} alt=""/>
+                <img src={item.image_main} alt=""/>
                  <ul>
-                <li>{item.title}</li>
+                <li>{item.translations[i18n.language].title}</li>
              </ul>
 
               </div>
@@ -244,24 +249,11 @@ function OffcanvasExample() {
 {/*///////////////////////////////////////////////////////////Shop hover status end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/}
 
                  <div className="header-link">
-                    <FiHeart className="left-side-icon-responsive" />
-                    <span><Link to="/favourites" className="header-page-link">{t('navbarTop.nav6')}</Link></span>
+                    <span><Link  style={{textDecoration:"none"}} className="header-page-link"><Categories/></Link></span>
                   </div>
 
 {/*/////////////////////////////////////////// Responsive Header icons ////////////////////////////////////////////////////////*/}
 
-                  <div className="header-link-responsive-flex">
-                    <IoIosPeople className="left-side-icon-responsive"/>
-                    <span>{t('navbar.nav3')}</span>
-                  </div>
-                  <div className="header-link-responsive-flex">
-                    <BsNewspaper className="left-side-icon-responsive"/>
-                    <span>{t('navbar.nav2')}</span>
-                  </div>
-                  <div className="header-link-responsive-flex">
-                    <IoInformationCircle className="left-side-icon-responsive"/>
-                    <span>{t('navbarTop.nav8')}</span>
-                  </div>
 
 {/*/////////////////////////////////////////// Responsive Header icons end ////////////////////////////////////////////////////////*/}                  
 
@@ -315,16 +307,16 @@ function OffcanvasExample() {
           />
           <Button variant="outline-success" style={{zIndex:"100"}}>
             <BiSearch size={20} />
-            {t('navbarTop.nav2')}
+            {/* {t('navbarTop.nav2')} */}
           </Button>
         </Form>
         {value === "" ? (""):(<div className="search-block">
-                    {data.products?.map((item) => (
-              <Link className="link-s" to={`product/detail/${item.id}`} style={{textDecoration:"none"}}>  
+                    {data?.map((item) => (
+              <Link className="link-s" to={`product/${item.id}`} style={{textDecoration:"none"}}>  
               <div className="box">
-                <img src={item.thumbnail} alt=""  width={"30px"}/>
+                <img src={item.image_main} alt=""  width={"30px"}/>
                  <ul>
-                <li>{item.title}</li>
+                <li>{item.translations[i18n.language].title}</li>
              </ul>
 
               </div>
@@ -333,6 +325,9 @@ function OffcanvasExample() {
                   </div>)}
       </div>
       <Navbars closeSearch={setValue}/>
+      {/* <div style={{display:"none"}}>
+      <ProductDetail closeSearch={setValue}/>
+      </div> */}
     </>
   );
 }

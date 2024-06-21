@@ -15,8 +15,8 @@ export default function Card({image,price,id,true_price,translations,product}) {
                 {/* <p>{t('Cardlang.card1')}</p> */}
                 <img src={image} alt="" style={{width:"100%",height:"200px",objectFit:"contain"}} />
                 <div className="top-image-icon-container">
-                    <div className="card-shop-icon"><FaShoppingCart color='#fff' size={18} /></div>
-                    <FiHeart size={25} color='gray' style={{marginTop:"10px",}}/>
+                   <Link to={'/cart'}><div className="card-shop-icon"><FaShoppingCart color='#fff' size={18} /></div></Link> 
+                    {/* <FiHeart size={25} color='gray' style={{marginTop:"10px",}}/> */}
                 </div>
             </div>
             <div className="card-bottom-info" style={{width:"100%"}}>
@@ -34,8 +34,8 @@ export default function Card({image,price,id,true_price,translations,product}) {
                     {/* <span><TiMessage/>0 {t('Cardlang.card2')}</span> */}
                 </div>
                 <div className="card-item-price-container">
-                    <span ><del style={{color:"#AF5679"}}>{product.true_price} {t('Cardlang.card3')}</del> </span>
-                    <h4 style={{fontSize:"18px",marginBottom:"-5px",marginTop:"-5px"}}>${price}</h4>
+                    <span ><del style={{color:"#AF5679"}}>{product.true_price > null ? (`${product.true_price} ,  ${t('Cardlang.card3')}`):(`${0} ,  ${t('Cardlang.card3')}`)}</del> </span>
+                    <h4 style={{fontSize:"18px",marginBottom:"-5px",marginTop:"-5px"}}>{price} {t('Cardlang.card3')}</h4>
                     {/* <span>109 800 {t('Cardlang.card3')} /12 {t('Cardlang.card4')}</span> */}
                 </div>
                 <div className="button-container">

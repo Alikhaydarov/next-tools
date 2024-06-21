@@ -898,7 +898,7 @@ export default function Navbar({closeSearch}) {
   useEffect(() => {
     axios
         .get("categories/")
-        .then((res) => setData(res.data));
+        .then((res) => setData(res.data.results));
 }, []);
   // console.log(data);
   return (

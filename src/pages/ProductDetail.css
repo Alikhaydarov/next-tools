@@ -230,7 +230,7 @@
     width: 19%;
 }
 .product-but2{
-    background-color: #F26E00;
+    background-color: #17b978;
     color: #fff;
     border: none;
     -webkit-transform: translateZ(0);
@@ -247,8 +247,8 @@
 }
 .product-but3{
     background-color: transparent;
-    color: #F26E00;
-    border: 1px solid #F26E00;
+    color: #169a65;
+    border: 1px solid #169a65;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     -webkit-backface-visibility: hidden;
@@ -313,7 +313,7 @@
     right: 0;
     bottom: 0;
     border-radius: 10px;
-    background:#C75E36;
+    background:#169a65;
     -webkit-transform: scaleX(1);
     transform: scaleX(0);
     -webkit-transform-origin: 0 50%;
@@ -338,7 +338,7 @@
     -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
     transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
     border-radius: 10px;
-    background-color: #C75E36;
+    background-color: #169a65;
 }
 /* product but2 hoverable animation  end*/
 

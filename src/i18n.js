@@ -56,7 +56,7 @@ i18n
             card10:"Yangi kelganlar",
           },
           productDetail:{
-            product1:"Brend:",
+            product1:"Mahsulot miqdori:",
             product2:"Holati:",
             product3:"Ulashish",
             product4:"Sotuvda bor",
@@ -146,7 +146,7 @@ i18n
             card10:"Новинки",
           },
           productDetail:{
-            product1:"Бренд:",
+            product1:"Количество:",
             product2:"Наличии:",
             product3:"Поделиться:",
             product4:" Есть в наличии",

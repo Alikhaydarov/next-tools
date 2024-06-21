@@ -173,7 +173,7 @@
     right: 0;
     bottom: 0;
     border-radius: 10px;
-    background:#006ac1;
+    background:#169a65;
     -webkit-transform: scaleX(1);
     transform: scaleX(0);
     -webkit-transform-origin: 0 50%;
@@ -198,5 +198,5 @@
     -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
     transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
     border-radius: 10px;
-    background-color: #006ac1;
+    background-color: #169a65;
   }

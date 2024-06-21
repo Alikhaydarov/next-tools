@@ -20,7 +20,7 @@ import Store from "./components/CompanyInfo/Store";
 import Footer from "./components/footer/Footer";
 import Modal from "./components/Modal/Modal"
 import Firstcategory from "./pages/firstcategory";
-import Cart from './pages/Cart';
+import Cart from "./pages/Cart";
 function App() {
   const [loader, setLoader] = useState(false);
   const Loader = () => {

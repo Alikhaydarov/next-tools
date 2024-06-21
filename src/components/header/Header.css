@@ -52,8 +52,8 @@
   /* height: 50px; */
   margin-top: 7px;
   border: none;
-  outline: none;
-  background-color: rgb(23,185,120);
+  outline: #17b978;
+  background-color: #17b978;
   color: #fff;
   border-radius: 10px;
   -webkit-transform: translateZ(0);
@@ -166,7 +166,7 @@
 .navbar-search form input {
   border: 2px solid #17b978;
   z-index: 2;
-  outline: none;
+  outline: #17b978;
   border-radius: 10px;
 }
 .navbar-search form input:focus {
@@ -192,6 +192,7 @@
   background-color: #17b978;
 }
 .header-link {
+  font-weight: 700;
   color: #000;
   text-decoration: none;
   display: flex;
@@ -204,6 +205,7 @@
 }
 
 .header-page-link{
+  font-weight: 700;
   text-decoration: none;
   color: #000;
   transition: .5s;
