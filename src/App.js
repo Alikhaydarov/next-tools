@@ -15,11 +15,13 @@ import OrderPay from "./pages/OrderPay";
 import OrderPayStatus from "./pages/OrderPayStatus";
 import Favourites from "./pages/Favourites";
 import ProductDetail from "./pages/ProductDetail";
+import 'react-toastify/dist/ReactToastify.css';
 import Slide from "./components/Carausel/Slide";
 import Store from "./components/CompanyInfo/Store";
 import Footer from "./components/footer/Footer";
 import Modal from "./components/Modal/Modal"
 import Firstcategory from "./pages/firstcategory";
+import { ToastContainer } from 'react-toastify';
 import Cart from "./pages/Cart";
 function App() {
   const [loader, setLoader] = useState(false);
@@ -49,6 +51,7 @@ function App() {
     <>
      {loader?<Loader/>:<div className="App">
       <Header />
+    <ToastContainer/>
       <Routes>
         <Route path="/1" element={<Firstcategory/>}/>
         <Route path="/" element={<Home/>}/>

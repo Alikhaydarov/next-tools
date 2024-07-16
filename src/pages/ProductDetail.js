@@ -9,6 +9,8 @@ import { useTranslation, } from 'react-i18next';
 import {FaFacebookF,FaTelegramPlane,FaTwitter,FaWhatsapp} from "react-icons/fa"
 import Title from './title'
 // import axios
+import { toast } from 'react-toastify';
+
 
 import "./ProductDetail.css"
 //Swiper.js 
@@ -29,13 +31,16 @@ import { EffectCube, Pagination,Navigation,Mousewheel} from "swiper";
 import axios from './../service/api';
 
 export default function ProductDetail({closeSearch}) {
+
+
   const { t , i18n} = useTranslation();
+
 
   const closeSerch =()=>{
     closeSearch('')
   }
 
-    const [data,setData] = useState([])
+    const [datas,setDatas] = useState([])
     let {id} = useParams()
     console.log(id)
     useEffect(()=>{
@@ -43,15 +48,132 @@ export default function ProductDetail({closeSearch}) {
         try {
           const res = await axios.get(`/products/${id}`)
           // console.log(res)
-          setData(res.data)
+          setDatas(res.data)
         } catch (error) {
           console.log(error)
         }
       }
-      getData()
+      getData() 
     },[id])
-    console.log(data)
-    const {discountPercentage,title,translations,price,brand,image_main,description,img1,img2,img3,count,ru,uz} = data
+    console.log(datas)
+    const {discountPercentage,title,translations,price,brand,image_main,description,img1,img2,img3,count,ru,uz} = datas
+
+
+    // const postDataToCart = async (cart) => {
+    //   try {
+    //     const { data } = await axios.post("cart-items/", {
+    //       product:title,
+    //       cart: 'Cart 1',
+    //       quantity:1
+    //     });
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
+    const CartAddButton = (title) => {
+      let previousCart = localStorage.getItem('cartData');
+      let cartJson = JSON.parse(previousCart);
+      
+      const cartData = [
+        {
+          'product': {
+            'title': title,
+            'quantity': 1
+          }
+        }
+      ];
+    
+      if (cartJson !== null && Array.isArray(cartJson)) {
+        // Merge existing cart data with new cartData
+        let allCartData = [...cartJson, ...cartData];
+        let cartString = JSON.stringify(allCartData);
+        localStorage.setItem('cartData', cartString);
+      } else {
+        // Initialize cartData in localStorage if it doesn't exist
+        let cartString = JSON.stringify(cartData);
+        localStorage.setItem('cartData', cartString);
+      }
+    };
+    
+  //   const handleClick = () => {
+  //     // Check if window is defined (to avoid issues in environments without window, like Node.js)
+  //     let products  = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('carts') || '[]') : [];
+  
+  //     // Check if the product already exists in the cart
+  //     const isExistProduct = products.find(c => c.id === datas?.id);
+  
+  //     if (isExistProduct) {
+  //         // If the product exists, update its quantity
+  //         const updatedData = products.map(c => {
+  //             if (c.id === datas?.id) {
+  //                 return {
+  //                     ...c,
+  //                     quantity: c.quantity + 1,
+  //                 };
+  //             }
+  //             return c;
+  //         });
+  
+  //         // Update localStorage with the updated cart data
+  //         if (typeof window !== 'undefined') {
+  //             window.localStorage.setItem('carts', JSON.stringify(updatedData));
+  //         }
+  //     } else {
+  //         // If the product does not exist, add it with quantity 1
+  //         const data = [...products, { ...datas[0], quantity: 1 }];
+  
+  //         // Update localStorage with the new cart data
+  //         if (typeof window !== 'undefined') {
+  //             window.localStorage.setItem('carts', JSON.stringify(data));
+  //         }
+  //     }
+  
+  //     // Notify the user that the product has been added to the cart
+  //     toast('Product added to your bag!!');
+  // };
+  const [product,setProduct] = useState([])
+  useEffect(()=>{
+    const getData = async () => {
+      try {
+        const res = await axios.get(`/products/${id}`)
+        // console.log(res)
+        setProduct(res.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getData() 
+  },[id])
+  console.log(product,"product");
+
+  const handleClick = () => {
+    let products = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('carts') || '[]') : [];
+
+    const isExistProduct = products.find(c => c.id === (product && product.id));
+
+    if (isExistProduct) {
+        const updatedData = products.map(c => {
+            if (c.id === (product && product.id)) {
+                return {
+                    ...c,
+                    quantity: c.quantity + 1,
+                };
+            }
+
+            return c;
+        });
+        if (typeof window !== 'undefined') {
+            window.localStorage.setItem('carts', JSON.stringify(updatedData));
+        }
+    } else {
+        const data = [...products, { ...(product || {}), quantity: 1 }];
+        if (typeof window !== 'undefined') {
+            window.localStorage.setItem('carts', JSON.stringify(data));
+        }
+    }
+    toast('Product added to your bag!!');
+};
+
   return (
     <div className="product-container">
         <div className='product-detail-container'>
@@ -124,7 +246,7 @@ export default function ProductDetail({closeSearch}) {
                 </div>
                 <div className="product-button-container">
                   {/* <button className='product-but1'>{t('productDetail.product6')}</button> */}
-                  <button onChange={closeSerch} className='product-but2'> <MdShoppingBasket style={{marginRight:"5px",}} size={25}/>{t('productDetail.product7')}</button>
+                  <button onClick={handleClick}  className='product-but2'> <MdShoppingBasket style={{marginRight:"5px",}} size={25}/>{t('productDetail.product7')}</button>
                   {/* <button className='product-but3'>{t('productDetail.product8')}</button> */}
                 </div>
           </div>

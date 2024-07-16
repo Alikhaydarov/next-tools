@@ -21,7 +21,7 @@ function Firstcategory() {
       
             {/* <h5 style={{color:"#848896",}}>{t('Cardlang.card7')}</h5> */}
             {data?.map((item)=>
-              <Card product={item} translation={item.translation} title={item.title} image={item.image_main} price={item.price} id={item.id} true_price={item.true_price}/>
+              <Card item={item} translation={item.translation} title={item.title} image={item.image_main} price={item.price} id={item.id} true_price={item.true_price}/>
             )}
     </div>
   )
