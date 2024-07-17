@@ -17,7 +17,11 @@ import {
 } from 'mdb-react-ui-kit'
 import React, { useEffect, useState } from 'react'
 import './Cart.css'
+import { Link } from 'react-router-dom'
+import { useTranslation, } from 'react-i18next';
+
 export default function Cart() {
+	const { t , i18n } = useTranslation();  
 	const [total, setTotal] = useState(0);
 	const [products, setProducts] = useState([])
 	useEffect(() => {
@@ -88,13 +92,13 @@ useEffect(() => {
 	return (
 		<>
 		{products.length ? (<section className='h-100 gradient-custom'>
-			<MDBContainer className='py-5 h-100'>
+			<MDBContainer className='py-0 h-100'>
 				<MDBRow className='justify-content-center my-4'>
 					<MDBCol md='8'>
 						<MDBCard className='mb-4'>
 							<MDBCardHeader className='py-3'>
 								<MDBTypography tag='h5' className='mb-0'>
-									Cart - {products.length}items
+									{t('shoppingCart.cart1')} {products.length}
 								</MDBTypography>
 							</MDBCardHeader>
 							<MDBCardBody>
@@ -124,7 +128,7 @@ useEffect(() => {
 
 											<MDBCol lg='5' md='6' className=' mb-4 mb-lg-0'>
 												<p>
-													<strong>{product.title}</strong>
+													<strong>{product.translations[i18n.language].title}</strong>
 												</p>
 
 												<MDBBtn
@@ -150,7 +154,7 @@ useEffect(() => {
 														value={product.quantity}
 														min={1}
 														type='number'
-														label='Quantity'
+														label={t('productDetail.product1')}
 													/>
 
 													<MDBBtn onClick={() => handleIncrement(product.id)} style={{backgroundColor:"#17b978"}} className='px-3 ms-2'>
@@ -159,7 +163,7 @@ useEffect(() => {
 												</div>
 
 												<p className='text-start text-md-center'>
-													<strong>{product.price}</strong>
+													<strong>{product.true_price}</strong>
 												</p>
 											</MDBCol>
 										</MDBRow>
@@ -167,15 +171,6 @@ useEffect(() => {
 										<hr className='my-4' />
 									</>
 								))}
-							</MDBCardBody>
-						</MDBCard>
-
-						<MDBCard className='mb-4'>
-							<MDBCardBody>
-								<p>
-									<strong>Expected shipping delivery</strong>
-								</p>
-								<p className='mb-0'>12.10.2020 - 14.10.2020</p>
 							</MDBCardBody>
 						</MDBCard>
 					</MDBCol>
@@ -193,18 +188,18 @@ useEffect(() => {
 										<span>$53.98</span>
 									</MDBListGroupItem>
 									<MDBListGroupItem className='d-flex justify-content-between align-items-center px-0'>
-										Shipping
-										<span>Gratis</span>
+										{t('shoppingCart.cart3')}
+										<span>	{t('shoppingCart.cart4')}</span>
 									</MDBListGroupItem>
 									<MDBListGroupItem className='d-flex justify-content-between align-items-center border-0 px-0 mb-3'>
 										<div>
-											<strong>Total amount</strong>
+											<strong>{t('shoppingCart.cart2')}</strong>
 											<strong>
 												<p className='mb-0'>(including VAT)</p>
 											</strong>
 										</div>
 										<span>
-											<strong>{total}	</strong>
+											<strong>{total} {t('Cardlang.card3')}	</strong>
 										</span>
 									</MDBListGroupItem>
 								</MDBListGroup>
@@ -217,7 +212,7 @@ useEffect(() => {
 					</MDBCol>
 				</MDBRow>
 			</MDBContainer>
-		</section>):(<><p>Savatchada hech qanday narsa yo'q</p><br /><button>Katalog</button></>)}
+		</section>):(<><p>Savatchada hech qanday narsa yo'q</p><br /><Link to={'/'}><button>Katalog</button></Link></>)}
 													</>
 	)
 }

@@ -67,7 +67,7 @@ export default function Card({image,price,id,true_price,translations,item}) {
                 window.localStorage.setItem('carts', JSON.stringify(data));
             }
         }
-        toast('Product added to your bag!!');
+        toast("Savatchaga qo'shildi");
     };
     
   return (

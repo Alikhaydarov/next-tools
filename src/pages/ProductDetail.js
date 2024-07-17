@@ -56,7 +56,7 @@ export default function ProductDetail({closeSearch}) {
       getData() 
     },[id])
     console.log(datas)
-    const {discountPercentage,title,translations,price,brand,image_main,description,img1,img2,img3,count,ru,uz} = datas
+    const {discountPercentage,title,translations,true_price,brand,image_main,description,img1,img2,img3,count,ru,uz} = datas
 
 
     // const postDataToCart = async (cart) => {
@@ -171,8 +171,8 @@ export default function ProductDetail({closeSearch}) {
             window.localStorage.setItem('carts', JSON.stringify(data));
         }
     }
-    toast('Product added to your bag!!');
-};
+    toast("Savatchaga qo'shildi");
+  };
 
   return (
     <div className="product-container">
@@ -208,7 +208,7 @@ export default function ProductDetail({closeSearch}) {
 
               <div className="product-info-item">
                 <h4>{title}</h4>
-                <span>${price}</span>
+                <span>{true_price} {t('Cardlang.card3')}</span>
                 {/* {data.map((item)=>
                       <Title item={item}/>
                 )} */}

@@ -105,6 +105,12 @@ i18n
             modal1:"Kirish yoki shaxsiy kabinet yaratish",
             modal2:"Telefon",
             modal3:"Faollashtirish kodini olish"
+          },
+          shoppingCart:{
+            cart1:"Mahsulot miqdori:",
+            cart2:"Umumiy hisob",
+            cart3:"Yetkazib berish:",
+            cart4:"Manzilga qarap to'lanadi"
           }
         }
       },
@@ -195,6 +201,12 @@ i18n
             modal1:"Вход или создать личный кабинет",
             modal2:"Телефон",
             modal3:"ПОЛУЧИТ КОД АКТИВАЧИИ"
+          },
+          shoppingCart:{
+            cart1:"Количество продукта:",
+            cart2:"Общая сумма",
+            cart3:"Доставка:",
+            cart4:"Оплачивается по местоположению"
           }
         }
       }
