@@ -19,8 +19,14 @@ import React, { useEffect, useState } from 'react'
 import './Cart.css'
 import { Link } from 'react-router-dom'
 import { useTranslation, } from 'react-i18next';
+import Checkout from './checkout'
 
 export default function Cart() {
+  const [openCheck , SetOpenCheck] = useState(false);
+  function openOut() {
+    SetOpenCheck(true);
+		
+  }
 	const { t , i18n } = useTranslation();  
 	const [total, setTotal] = useState(0);
 	const [products, setProducts] = useState([])
@@ -31,6 +37,8 @@ export default function Cart() {
 				: []
 		setProducts(productLocalStorage)
 	}, [])
+
+	
 
 	// +
 	const removeProduct = (id) => {
@@ -163,7 +171,7 @@ useEffect(() => {
 												</div>
 
 												<p className='text-start text-md-center'>
-													<strong>{product.true_price}</strong>
+													<strong>{product.title}</strong>
 												</p>
 											</MDBCol>
 										</MDBRow>
@@ -204,7 +212,7 @@ useEffect(() => {
 									</MDBListGroupItem>
 								</MDBListGroup>
 
-								<MDBBtn style={{backgroundColor:"#17b978"}} block size='lg'>
+								<MDBBtn onClick={openOut} style={{backgroundColor:"#17b978"}} block size='lg'>
 									Go to checkout
 								</MDBBtn>
 							</MDBCardBody>
@@ -212,6 +220,7 @@ useEffect(() => {
 					</MDBCol>
 				</MDBRow>
 			</MDBContainer>
+			{openCheck && <Checkout  products={products}/>}
 		</section>):(<><p>Savatchada hech qanday narsa yo'q</p><br /><Link to={'/'}><button>Katalog</button></Link></>)}
 													</>
 	)
