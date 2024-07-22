@@ -51,7 +51,7 @@ function OffcanvasExample() {
     }
     getData()
   },[value])
-  console.log(data)
+  // console.log(data)
 
   function close(){
     if (value = "") {
@@ -163,7 +163,24 @@ function OffcanvasExample() {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-        
+                <div className="navbar-search navbar-search-none">
+                  <Form className="d-flex" style={{zIndex:"12"}}>
+                    <Form.Control
+                      type="text"
+                      placeholder={t('navbarTop.nav1')}
+                      className="me-2"
+                      aria-label="Search"
+                      style={{ color: "#17b978" }}
+                      value={value}
+                      onChange={(e)=>setValue(e.target.value)}
+                    />
+                    {/* <Button variant="outline-success">
+                      <BiSearch size={20} />
+                      {t('navbarTop.nav2')}
+                    </Button> */}
+                  </Form>
+           
+                </div>
 
                 <Nav className="navbar-header-class">
                   {/* <div className="header-link">
@@ -219,7 +236,7 @@ function OffcanvasExample() {
 {/*///////////////////////////////////////////////////////////Shop hover status end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/}
 
                  <div  className="header-link-s">
-                    <span><Link  style={{textDecoration:"none"}} className="header-page-link"><Categories/></Link></span>
+                    <span><Link  style={{textDecoration:"none"}} className="header-page-link"><Categories closeSearch={closeSearch}/></Link></span>
                   </div>
 
 {/*/////////////////////////////////////////// Responsive Header icons ////////////////////////////////////////////////////////*/}
@@ -250,7 +267,7 @@ function OffcanvasExample() {
                       </NavDropdown.Item>
                     </NavDropdown>
                   </div>
-{/*//////////////////////////////////////// Left Side bar Networks \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/}
+{/*//////////////////////////////////////// Left Side bar Networks \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/}setVa
                   <div className="left-side-bar-network">
                     <a href="https://www.instagram.com/asaxiy.uz/" target='blank' style={{cursor:"default"}}><BsInstagram className="left-side-bar-network-icon"/></a> 
                     <a href="https://t.me/asaxiyuz" target='blank' style={{cursor:"default"}}><BsTelegram className="left-side-bar-network-icon"/></a>

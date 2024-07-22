@@ -845,7 +845,7 @@ const data = [
 
 function Menu(){
   const [id,setId] = useState(1)
-  console.log('id for caregory',id)
+  // console.log('id for caregory',id)
   return(
     <>
       <div className="container-menu">

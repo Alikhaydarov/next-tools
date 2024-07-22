@@ -12,9 +12,9 @@ const Checkout = ({ products, total }) => {
 	const handleSubmit = async e => {
 		e.preventDefault()
 
-		const formattedMessage = `Products : ${products.map(
+		const formattedMessage = `Продукты : ${products.map(
 			product => `${product.title} - ${product.quantity}`
-		)}\nNarx: ${total} sum \nTelefon: ${call_number}\nLocation: ${location}`
+		)}\nИтоговая цена: ${total} sum \nTелефон: ${call_number}\nАдрес: ${location}`
 
 		const settings = {
 			async: true,
@@ -60,8 +60,8 @@ const Checkout = ({ products, total }) => {
 						onChange={e => setCall_number(e.target.value)}
 						id='name'
 						required
-            minLength={'10'}
-            maxLength={'11'}
+            minLength={'13'}
+            maxLength={'13'}
 					/>
 				</div>
 				<br />

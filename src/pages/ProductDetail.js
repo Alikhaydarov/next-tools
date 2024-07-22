@@ -30,7 +30,6 @@ export default function ProductDetail({ closeSearch }) {
 
   const [datas, setDatas] = useState([]);
   let { id } = useParams();
-  console.log(id);
   useEffect(() => {
     const getData = async () => {
       try {
@@ -42,7 +41,6 @@ export default function ProductDetail({ closeSearch }) {
     };
     getData();
   }, [id]);
-  console.log(datas);
   const { discountPercentage, title, translations, true_price, brand, image_main, description, img1, img2, img3, count, ru, uz } = datas;
 
   const CartAddButton = (title) => {
@@ -80,7 +78,6 @@ export default function ProductDetail({ closeSearch }) {
     };
     getData();
   }, [id]);
-  console.log(product, "product");
 
   const handleClick = () => {
     let products = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('carts') || '[]') : [];
@@ -112,7 +109,7 @@ export default function ProductDetail({ closeSearch }) {
   return (
     <div className="product-container">
       <div className='product-detail-container'>
-        <div className="swiper-container" onClick={closeSerch}>
+        <div className="swiper-container">
           <Swiper
             style={{ cursor: "zoom-in" }}
             modules={[EffectCube, Pagination]}
