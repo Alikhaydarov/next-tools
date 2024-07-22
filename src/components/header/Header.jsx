@@ -179,6 +179,18 @@ function OffcanvasExample() {
                       {t('navbarTop.nav2')}
                     </Button> */}
                   </Form>
+                  {value === "" ? (""):(<div className="search-block">
+                    {data?.map((item) => (
+              <Link className="link-s" to={`product/${item.id}`} style={{textDecoration:"none"}}>  
+              <div className="box">
+                <img src={item.image_main} alt=""  width={"30px"}/>
+                 <ul>
+                <li>{item.translations[i18n.language].title}</li>
+             </ul>
+              </div>
+              </Link>
+              ))}
+                  </div>)}
            
                 </div>
 
@@ -267,7 +279,7 @@ function OffcanvasExample() {
                       </NavDropdown.Item>
                     </NavDropdown>
                   </div>
-{/*//////////////////////////////////////// Left Side bar Networks \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/}setVa
+{/*//////////////////////////////////////// Left Side bar Networks \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/}
                   <div className="left-side-bar-network">
                     <a href="https://www.instagram.com/asaxiy.uz/" target='blank' style={{cursor:"default"}}><BsInstagram className="left-side-bar-network-icon"/></a> 
                     <a href="https://t.me/asaxiyuz" target='blank' style={{cursor:"default"}}><BsTelegram className="left-side-bar-network-icon"/></a>
@@ -304,7 +316,6 @@ function OffcanvasExample() {
                  <ul>
                 <li>{item.translations[i18n.language].title}</li>
              </ul>
-
               </div>
               </Link>
               ))}

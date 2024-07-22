@@ -492,6 +492,9 @@
 /*///////////////////////////////////////////////////////// Header Style end \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 @media (max-width: 992px) {
+	.modal{
+		display: none;
+	}
 	/*///////////////////////////////////////////////////////// Header Style responsive \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 	.modal-close-icon {
 		display: none;
@@ -500,6 +503,7 @@
 		max-width: 100%;
 	}
 	.modal-body {
+		
 		height: 200px;
 		display: flex;
 		align-items: center;
@@ -513,6 +517,9 @@
 		display: none;
 	}
 	.header-navbar-main {
+		z-index: 150;
+		position: sticky !important;
+		top: 0px;
 		padding: 10px 10px !important;
 	}
 	.navbar-search-bottom {
