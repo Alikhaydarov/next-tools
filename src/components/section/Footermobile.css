@@ -1,0 +1,24 @@
+.footer {
+  background-color: #17b978;
+  bottom: -2px;
+  position: fixed;
+  width: 100%;
+  z-index: 49;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+	border: solid 2px black;
+	border-radius: 5px;
+}
+
+.icon-container {
+  color: white;
+  text-align: center;
+	font-size: 30px;
+}
+
+.icon-container span {
+  display: block;
+  margin-top: 5px;
+  font-size: 15px;
+}

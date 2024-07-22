@@ -390,6 +390,7 @@
     border-radius: 20px;
 }
 .product-description p{
+    word-break: break-all;
     margin-top: 20px;
 }
 

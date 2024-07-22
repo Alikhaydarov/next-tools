@@ -23,6 +23,7 @@ import Modal from "./components/Modal/Modal"
 import Firstcategory from "./pages/firstcategory";
 import { ToastContainer } from 'react-toastify';
 import Cart from "./pages/Cart";
+import Footermobile from './components/section/Footermobile'
 function App() {
   const [loader, setLoader] = useState(false);
   const Loader = () => {
@@ -73,6 +74,7 @@ function App() {
        {/* <Slide/> */}
        {/* <Store/> */}
       </div>
+      <Footermobile/>
       <Footer/>
       {/* <Modal/> */}
     </div>}

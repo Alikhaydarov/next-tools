@@ -163,37 +163,7 @@ function OffcanvasExample() {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <div className="navbar-search navbar-search-none">
-                  <Form className="d-flex" style={{zIndex:"12"}}>
-                    <Form.Control
-                      type="text"
-                      placeholder={t('navbarTop.nav1')}
-                      className="me-2"
-                      aria-label="Search"
-                      style={{ color: "#17b978" }}
-                      value={value}
-                      onChange={(e)=>setValue(e.target.value)}
-                    />
-                    {/* <Button variant="outline-success">
-                      <BiSearch size={20} />
-                      {t('navbarTop.nav2')}
-                    </Button> */}
-                  </Form>
-                  {/* [value] */}
-                  {value === "" ? (""):(<div className="search-block">
-                    {data?.map((item) => (
-              <Link className="link-s" to={`product/${item.id}`} style={{textDecoration:"none",color:"#17b978"}}>  
-              <div className="box">
-                <img src={item.image_main} alt=""/>
-                 <ul>
-                <li>{item.translations[i18n.language].title}</li>
-             </ul>
-
-              </div>
-              </Link>
-              ))}
-                  </div>)}
-                </div>
+        
 
                 <Nav className="navbar-header-class">
                   {/* <div className="header-link">
@@ -248,7 +218,7 @@ function OffcanvasExample() {
 
 {/*///////////////////////////////////////////////////////////Shop hover status end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/}
 
-                 <div className="header-link">
+                 <div  className="header-link-s">
                     <span><Link  style={{textDecoration:"none"}} className="header-page-link"><Categories/></Link></span>
                   </div>
 
@@ -284,7 +254,6 @@ function OffcanvasExample() {
                   <div className="left-side-bar-network">
                     <a href="https://www.instagram.com/asaxiy.uz/" target='blank' style={{cursor:"default"}}><BsInstagram className="left-side-bar-network-icon"/></a> 
                     <a href="https://t.me/asaxiyuz" target='blank' style={{cursor:"default"}}><BsTelegram className="left-side-bar-network-icon"/></a>
-                    <a href="https://www.facebook.com/asaxiyshop/" target='blank' style={{cursor:"default"}}><BsFacebook className="left-side-bar-network-icon"/></a>
                   </div>
 {/*//////////////////////////////////////// Left Side bar Networks end \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/}
                 </Nav>

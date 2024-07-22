@@ -220,7 +220,7 @@ useEffect(() => {
 					</MDBCol>
 				</MDBRow>
 			</MDBContainer>
-			{openCheck && <Checkout  products={products}/>}
+			{openCheck && <Checkout total={total} products={products}/>}
 		</section>):(<><p>Savatchada hech qanday narsa yo'q</p><br /><Link to={'/'}><button>Katalog</button></Link></>)}
 													</>
 	)

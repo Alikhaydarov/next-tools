@@ -11,7 +11,7 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-     lng: 'uz',
+     lng: 'uz' ||'ru',
     debug: true,
     fallbackLng: 'uz',    
     interpolation: {
@@ -67,7 +67,7 @@ i18n
             product8:"Bir klikda olish",
             product9:"Samsung Galaxy Buds Live Black, White...",
             product10:"Apple AirPods Pro quloqchini",
-
+            descriptionTitle:"Mahsulot ma'lumotlari"
           },
           infoCompany:{
             info1:"Asaxiy kompaniyasi haqida",
@@ -163,7 +163,7 @@ i18n
             product8:"Купить в 1 клик",
             product9:"Наушники Samsung Galaxy Buds Live Black,...",
             product10:"Наушники Apple AirPods Pro ",
-
+            descriptionTitle:"Информация о продукте"
           },
           infoCompany:{
             info1:"О компании Asaxiy",
