@@ -618,4 +618,7 @@
   .header-link-s{
     display: none;
   }
+	#navbar-brand{
+		margin-right: 10px;
+	}
 }

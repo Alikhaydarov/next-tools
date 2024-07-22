@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import img from "../header/Nest_tools-removebg-preview.png"
+import img from "../header/photo_2024-07-22_18-21-29.jpg"
 import Offcanvas from "react-bootstrap/Offcanvas";
 import "./Header.css";
 import Navbars from "./Navbar";
@@ -125,7 +125,7 @@ function OffcanvasExample() {
     </div>
       {["lg"].map((expand) => (
         <Navbar
-          key={expand}
+          // key={expand}
           expand={expand}
           className="header-navbar-main"
           onClick={closeSearch}
@@ -138,23 +138,25 @@ function OffcanvasExample() {
             >
               <RxHamburgerMenu size={30} color="#17b978"  />
             </Navbar.Toggle>
-            <Navbar.Brand href="#">
+            <Navbar.Brand style={{marginLeft:-20}} id='navbar-brand' href="#">
               <Link to="/">
                 <img
                   src={img}
                   alt=""
                   width={200}
+                  height={70}
                 />
               </Link>
              
             </Navbar.Brand>
 
             <Navbar.Offcanvas
+            
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
             >
               <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                <Offcanvas.Title style={{marginRight:"20px"}} id={`offcanvasNavbarLabel-expand-${expand}`}>
                   <img
                     src={img}
                     alt=""
@@ -314,7 +316,7 @@ function OffcanvasExample() {
               <div className="box">
                 <img src={item.image_main} alt=""  width={"30px"}/>
                  <ul>
-                <li>{item.translations[i18n.language].title}</li>
+                <li onClick={closeSearch}>{item.translations[i18n.language].title}</li>
              </ul>
               </div>
               </Link>

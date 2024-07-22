@@ -53,9 +53,10 @@ const Checkout = ({ products, total ,openClose}) => {
 
 		try {
 			const response = await axios(settings)
-			console.log(response)
+			// console.log(response)
 			toast("Buyurtma Berildi");
 			SetLoading(false)
+			openClose()
 		} catch (error) {
 			console.error(error)
 
