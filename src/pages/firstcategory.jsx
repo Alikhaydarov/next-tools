@@ -6,15 +6,17 @@ import Col from 'react-bootstrap/Col';
 import Card from "../components/Cards/Card";
 import { useTranslation, } from 'react-i18next';
 import axios from './../service/api';// import firstcategory from './firstcategory';
+import { useParams } from 'react-router-dom'
 function Firstcategory() {
+  let { id } = useParams();
   const { t , i18n} = useTranslation();
   const [data, setData] = useState([]);
   useEffect(() => {
       axios
-          .get("categories/1/")
+          .get(`categories/${id}/`)
           .then((res) => setData(res.data.prod_obj));
-  }, []);
-  console.log(data);
+  }, [id]);
+  // console.log(data);
   // console.log("Data base",data['products'])
   return (
     <div className='category-1'>

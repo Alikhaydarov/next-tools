@@ -7,7 +7,6 @@ import Home from "./pages/Home";
 import News from "./pages/News";
 import NewProduct from "./pages/NewProduct";
 import Discounts from "./pages/Discounts";
-import Twocategory from "./pages/twocategory";
 import Telephones from "./pages/Telephones";
 import Tv from "./pages/Tv";
 import Sport from "./pages/Sport";
@@ -54,13 +53,12 @@ function App() {
       <Header />
     <ToastContainer/>
       <Routes>
-        <Route path="/1" element={<Firstcategory/>}/>
+        <Route path="/:id" element={<Firstcategory/>}/>
         <Route path="/" element={<Home/>}/>
         <Route path="/product/:id" element={<ProductDetail/>}/>
         <Route path="/news" element={<News/>}/>
         <Route path="/newProduct" element={<NewProduct/>}/>
         <Route path="/Discounts" element={<Discounts/>}/>
-        <Route path="/2" element={<Twocategory/>}/>
         <Route path="/telephones" element={<Telephones/>}/>
         <Route path="/tv" element={<Tv/>}/>
         <Route path="/sports" element={<Sport/>}/>

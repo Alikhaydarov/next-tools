@@ -1,4 +1,6 @@
 import {useState,useEffect} from "react"
+import { RU } from 'country-flag-icons/react/3x2'
+import { UZ } from 'country-flag-icons/react/3x2'
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -44,7 +46,7 @@ function OffcanvasExample() {
     const getData = async () => {
       try {
         const res = await axios.get(`products/?search=${value}`).then(res=> 
-        setData(res.data.results)).then(r=>r).catch(E=>console.log(E))
+        setData(res.data.results))  // .then(r=>r).catch(E=>console.log(E))
       } catch (error) {
         console.log(error)
       }
@@ -124,7 +126,8 @@ function OffcanvasExample() {
       </Modal>
     </div>
       {["lg"].map((expand) => (
-        <Navbar
+        <Navbar 
+        collapseOnSelect
           // key={expand}
           expand={expand}
           className="header-navbar-main"
@@ -214,7 +217,7 @@ function OffcanvasExample() {
                       className="dropdown-language-responsive"
                     />
                     <NavDropdown
-                      title={i18n.language=='uz'? "O'zbekcha":"Русский"}
+                      title={i18n.language==='uz'? "O'zbekcha":"Русский"}
                       id={`offcanvasNavbarDropdown-expand-${expand}`}
                     >
                       <NavDropdown.Item onClick={()=>i18n.changeLanguage('uz')}>
@@ -233,25 +236,15 @@ function OffcanvasExample() {
                   </div>
                  </Link>
 {/*///////////////////////////////////////////////////////////Shop hover status  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/}
-                  <div className="shop-hover-container" style={{backgroundColor:'#f1f9ff'}}>
-                    <div className="shop-hover-top"></div>
-                    <div className="shop-hover-bottom">
-                      <div className="shop-status">
-                        <span style={{color:"gray",fontWeight:"500"}}>{t('navbarTop.nav9')}</span>
-                        <span style={{fontWeight:"600"}}>0 {t('navbarTop.nav10')}</span>
-                      </div>
-                      <div className="shop-hover-button">
-                           <button className="button1">{t('navbarTop.nav11')}</button>
-                           <button className="button2">{t('navbarTop.nav12')}</button>
-                      </div>
-                    </div>
-                  </div>
+                    
 
 {/*///////////////////////////////////////////////////////////Shop hover status end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/}
 
-                 <div  className="header-link-s">
-                    <span><Link  style={{textDecoration:"none"}} className="header-page-link"><Categories closeSearch={closeSearch}/></Link></span>
-                  </div>
+           <Navbar.Toggle collapseOnSelect>
+            <Nav collapseOnSelect>
+              <Nav.Link><Categories/></Nav.Link>
+            </Nav>
+           </Navbar.Toggle>
 
 {/*/////////////////////////////////////////// Responsive Header icons ////////////////////////////////////////////////////////*/}
 
@@ -269,17 +262,22 @@ function OffcanvasExample() {
                       className="dropdown-language-responsive"
                     />
                     <NavDropdown
-                      title={i18n.language=='uz'? "O'zbekcha":"Русский"}
+                      title={i18n.language==='uz'? "O'zbekcha":"Русский"}
                       id={`offcanvasNavbarDropdown-expand-${expand}`}
                       className="language-selector"
                     >
-                      <NavDropdown.Item onClick={()=>i18n.changeLanguage('uz')}>
-                        O'zbekcha
+                     <Navbar.Toggle style={{display:"flex"}}>
+                     <NavDropdown.Item style={{padding:"15px 10px",fontWeight:"bolder"}} onClick={()=>i18n.changeLanguage('uz')}>
+                     <UZ title="Uzbekistan" style={{width:"30px"}} className="..."/> {""}O'zbekcha
                       </NavDropdown.Item>
-                      <NavDropdown.Item onClick={()=>i18n.changeLanguage('ru')}>
-                        Русский
+                     </Navbar.Toggle>
+                     <Navbar.Toggle>
+                      <NavDropdown.Item style={{padding:"15px 10px",fontWeight:"bolder"}} onClick={()=>i18n.changeLanguage('ru')}>
+                      <RU title="Russian" style={{width:"30px"}} className="..."/> {""}Русский 
                       </NavDropdown.Item>
+                      </Navbar.Toggle>
                     </NavDropdown>
+                   
                   </div>
 {/*//////////////////////////////////////// Left Side bar Networks \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/}
                   <div className="left-side-bar-network">

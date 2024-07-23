@@ -11,7 +11,7 @@ import { useState,useEffect } from 'react';
 import { toast } from 'react-toastify';
 export default function Card({image,price,id,true_price,translations,item}) {
     const { t , i18n } = useTranslation();  
-    console.log(id);
+    // console.log(id);
 
 
     const postDataToCart = async (product) => {
@@ -40,7 +40,7 @@ export default function Card({image,price,id,true_price,translations,item}) {
         }
         getData() 
       },[id])
-      console.log(product,"product");
+      // console.log(product,"product");
     
       const handleClick = () => {
         let products = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('carts') || '[]') : [];
@@ -67,8 +67,8 @@ export default function Card({image,price,id,true_price,translations,item}) {
                 window.localStorage.setItem('carts', JSON.stringify(data));
             }
         }
-        toast("Savatchaga qo'shildi");
-    };
+        toast(`${t("shoppingCart.cart11")}`)
+      };
     
   return (
     <div>

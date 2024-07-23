@@ -123,6 +123,7 @@ i18n
 							'Hozirda sizning savatchangizda hech qanday mahsulot mavjud emas.',
 						cart9: "Boshqa mahsulotlarni qo'shish uchun do'konimizga qayting.",
 						cart10: 'Orqaga qaytish',
+						cart11:"Savatchaga qo'shildi"
 					},
 					Checkout: {
 						cart1: 'Тelefon:',
@@ -233,6 +234,7 @@ i18n
 						cart8: 'На данный момент в вашей корзине нет товаров.',
 						cart9: 'Вернитесь в наш магазин, чтобы добавить другие товары.',
 						cart10: 'Возвращаться',
+						cart11:'Добавлено в корзину'
 					},
 					Checkout: {
 						cart1: 'Телефон',
