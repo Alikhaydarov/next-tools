@@ -13,7 +13,7 @@ import 'swiper/css/pagination'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { EffectCube, Pagination } from 'swiper'
-import axios from './../service/api'
+import axios from '../service/api'
 
 export default function ProductDetail({ closeSearch }) {
 	const { t, i18n } = useTranslation()
@@ -114,7 +114,7 @@ export default function ProductDetail({ closeSearch }) {
 				window.localStorage.setItem('carts', JSON.stringify(data))
 			}
 		}
-		toast(`${t("shoppingCart.cart11")}`)
+		toast(`${t('shoppingCart.cart11')}`)
 	}
 
 	return (

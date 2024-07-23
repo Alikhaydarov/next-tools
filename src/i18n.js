@@ -43,7 +43,7 @@ i18n
 						nav10: "so'm",
 						nav11: 'SOTIB OLISH',
 						nav12: "SAVATGA O'TISH",
-            nav13:"Asosiy"
+						nav13: 'Asosiy',
 					},
 					Cardlang: {
 						card1: 'Chegirma',
@@ -123,11 +123,12 @@ i18n
 							'Hozirda sizning savatchangizda hech qanday mahsulot mavjud emas.',
 						cart9: "Boshqa mahsulotlarni qo'shish uchun do'konimizga qayting.",
 						cart10: 'Orqaga qaytish',
-						cart11:"Savatchaga qo'shildi"
+						cart11: "Savatchaga qo'shildi",
 					},
 					Checkout: {
 						cart1: 'Тelefon:',
 						cart2: 'Manzil:',
+						cart3: 'Buyurtma Berish',
 					},
 				},
 			},
@@ -156,7 +157,7 @@ i18n
 						nav10: 'сум',
 						nav11: 'ОФОРМИТЬ ПОКУПКУ',
 						nav12: 'ПЕРЕЙТИ В КОРЗИНКУ',
-            nav13:"Основной"
+						nav13: 'Основной',
 					},
 					Cardlang: {
 						card1: 'Скидка',
@@ -234,11 +235,12 @@ i18n
 						cart8: 'На данный момент в вашей корзине нет товаров.',
 						cart9: 'Вернитесь в наш магазин, чтобы добавить другие товары.',
 						cart10: 'Возвращаться',
-						cart11:'Добавлено в корзину'
+						cart11: 'Добавлено в корзину',
 					},
 					Checkout: {
 						cart1: 'Телефон',
 						cart2: 'Адрес',
+						cart3: 'Разместить заказ',
 					},
 				},
 			},

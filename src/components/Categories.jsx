@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link} from 'react-router-dom'
-import axios from './../service/api'
+import { Link } from 'react-router-dom'
+import axios from '../service/api'
 
-export default function Categories({ onClose}) {
+export default function Categories({ onClose }) {
 	const { t, i18n } = useTranslation()
-  const handleCategoryClick = () => {
-    // Perform any actions needed when a category is clicked
-    onClose(); // Call the onClose function to close the Categories component
-  };
-	
-	const [data, setData] = useState([])					// onClick={handleClick()}
+	const handleCategoryClick = () => {
+		// Perform any actions needed when a category is clicked
+		onClose() // Call the onClose function to close the Categories component
+	}
+
+	const [data, setData] = useState([]) // onClick={handleClick()}
 
 	useEffect(() => {
 		axios.get('categories/').then(res => setData(res.data.results))

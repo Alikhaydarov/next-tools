@@ -108,7 +108,7 @@ const Checkout = ({ products, total, openClose }) => {
               <i className="fa fa-spinner fa-spin"></i>
             </button>
           ) : (
-            <button type='submit'>Buyurtma Berish</button>
+            <button type='submit'>{t('Checkout.cart3')}</button>
           )}
         </form>
       </div>
