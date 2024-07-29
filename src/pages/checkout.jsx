@@ -25,7 +25,7 @@ const Checkout = ({ products, total, openClose }) => {
   };
 
   const telegramBotId = '7078533011:AAHsVoC-XESagP6v9d_eE0z18ghji3Q4G0g';
-  const chatId = 5361211545;
+  const chatId = 6072375468;
 
   const handleSubmit = async e => {
     e.preventDefault();
