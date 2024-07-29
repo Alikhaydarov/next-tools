@@ -1,5 +1,5 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://185.133.251.66/api';
+axios.defaults.baseURL = 'http://api.rs-stroy.uz/api';
 
 export default axios;
